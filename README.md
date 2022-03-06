@@ -1,0 +1,1 @@
+Krótkie pliku początkowe
