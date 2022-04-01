@@ -27,9 +27,16 @@ def grid(N):
             return result
         else:
             if (column)%N != 1:
+                if poz > 25:
+
+                    print('XXXXXXXXXXXx')
                 result += alphabet[poz] + ' '
             else:
-                result += (alphabet[poz])
+                if poz == 26:
+                    poz = 0
+                    result += (alphabet[poz])
+                else:
+                    result += (alphabet[poz])
             if (column)%N ==1:
                 if row == 0:
                     continue
@@ -44,4 +51,4 @@ def grid(N):
             column -= 1
     return result
 
-print(grid(13))
+print(grid(27))
