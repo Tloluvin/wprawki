@@ -14,41 +14,33 @@ alphabet = list(string.ascii_lowercase) #26
 
 def grid(N):    
     result = ''
-    mark = N*N
-    row = N
-    column = N
+    mark = 0
     poz = 0
+    if N == 0:
+        return ''
     if N < 0:
         return None
     if N == 1:
-        return alphabet[poz]
-    for i in range(0,mark): 
-        if mark == 0:
-            return result
-        else:
-            if (column)%N != 1:
-                if poz > 25:
+        return alphabet[0]
+    for i in range(0, N*N):
 
-                    print('XXXXXXXXXXXx')
-                result += alphabet[poz] + ' '
+        if i == ((N*N)-1):
+            result += alphabet[mark]
+        elif (i+1) % N == 0:
+            result += alphabet[mark]+'\n'
+            mark = poz
+            if poz >= 25:
+                poz = 0
             else:
-                if poz == 26:
-                    poz = 0
-                    result += (alphabet[poz])
-                else:
-                    result += (alphabet[poz])
-            if (column)%N ==1:
-                if row == 0:
-                    continue
-                else:
-                    if mark == 1:
-                        return result
-                    result += '\n'
-                    poz -= N-1
-                row -= 1
-            poz += 1
-            mark -= 1 
-            column -= 1
+                poz += 1
+            if mark >= N:
+                mark = 0
+        else:
+            result += alphabet[mark] + ' '
+        mark += 1
+        if mark >= 26:
+            mark = 0
     return result
 
-print(grid(27))
+
+print(grid(89))
