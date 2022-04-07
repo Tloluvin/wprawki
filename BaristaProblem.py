@@ -19,8 +19,22 @@
 # coffees = [3,2,5,10,9]  ->  85
 # coffees = [20,5]        ->  32
 # coffees = [4,3,2]       ->  22
-# Special Thanks to the great Discord community for helping with the creation of this kata and also to the programmers that helped a lot in the " discuss " section.
+
+def barista(coffees):
+    coffee = []
+    coffees.sort()
+    result = []
+    for c in coffees:
+        coffee.append(c)
+    for n in range(0, len(coffee)):
+        if n == 0:
+            result.append(coffee[n])
+        else:
+            result.append(result[n-1] + 2 + coffee[n])
+    return sum(result)
 
 
-
-
+print(barista([2, 10, 5, 3, 9]))  # 85
+print(barista([4, 3, 2]))  # 22
+print(barista([20, 5]))  # 32
+print(barista([20, 5, 4, 3, 1, 5, 7, 8]))  # 211
