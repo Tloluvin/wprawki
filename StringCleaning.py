@@ -8,9 +8,7 @@
 def string_clean(s):
     result = ''
     for c in s:
-        if c.isnumeric():
-            continue
-        else:
+        if not c.isnumeric():
             result += c
     return result
 
