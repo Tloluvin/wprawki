@@ -11,3 +11,23 @@
 # 4 "CpSo jO 7984!"
 # 5 "!4897 Oj oSpC"
 
+import string
+
+def play_pass(s, n):
+    result = ''
+    test = False
+    alphabet = string.ascii_lowercase*2
+    for l in s:        
+        if l.isalpha() or l == ' ':
+            test = not test
+            if test == True:
+                result += l.upper()
+            else:
+                result += l.lower()
+        if l.isdigit():
+            result += str(9-int(l))
+    return result
+
+
+print(play_pass("I LOVE YOU!!!", 1)) #!!!vPz fWpM J
+print(play_pass("MY GRANMA CAME FROM NY ON THE 23RD OF APRIL 2015", 2)) #4897 NkTrC Hq fT67 GjV Pq aP OqTh gOcE CoPcTi aO
