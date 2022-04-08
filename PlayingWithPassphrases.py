@@ -13,10 +13,13 @@
 
 import string
 alphabet = string.ascii_uppercase*2+' '
+specials = [ '@', '_', '!', '#', '$', '%', '^', '&', '*', '(', ')', '<', '>', '?', 
+            '/', '\\', '|', '{', '}', '~', ':', '.', '\"', '\'', '-', ',']
 
 def play_pass(s, n):
     result = ''
-    test = False    
+    test = False
+    
     for l in s:
         test = not test
         if l.isalpha():
@@ -27,10 +30,11 @@ def play_pass(s, n):
                 result += alphabet[(ind+n)].lower()
         if l.isdigit():
             result += str(9-int(l))
-        if l == ' ' or l == '!':
+        if l == ' ' or l in specials:
             result += l
     return result[::-1]
 
 
 print(play_pass("I LOVE YOU!!!", 1)) #!!!vPz fWpM J
 print(play_pass("MY GRANMA CAME FROM NY ON THE 23RD OF APRIL 2015", 2)) #4897 NkTrC Hq fT67 GjV Pq aP OqTh gOcE CoPcTi aO
+
