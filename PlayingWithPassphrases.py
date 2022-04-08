@@ -12,21 +12,24 @@
 # 5 "!4897 Oj oSpC"
 
 import string
+alphabet = string.ascii_uppercase*2+' '
 
 def play_pass(s, n):
     result = ''
-    test = False
-    alphabet = string.ascii_lowercase*2
-    for l in s:        
-        if l.isalpha() or l == ' ':
-            test = not test
+    test = False    
+    for l in s:
+        test = not test
+        if l.isalpha():
+            ind = alphabet.index(l)            
             if test == True:
-                result += l.upper()
+                result += alphabet[(ind+n)].upper()
             else:
-                result += l.lower()
+                result += alphabet[(ind+n)].lower()
         if l.isdigit():
             result += str(9-int(l))
-    return result
+        if l == ' ' or l == '!':
+            result += l
+    return result[::-1]
 
 
 print(play_pass("I LOVE YOU!!!", 1)) #!!!vPz fWpM J
