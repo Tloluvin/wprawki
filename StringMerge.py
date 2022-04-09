@@ -6,9 +6,7 @@
 # ("wonderful", "people", "e")  ==>  "wondeople"
 
 def string_merge(string1, string2, letter):
-    index1 = string1.index(letter)
-    index2 = string2.index(letter)
-    return string1[0:index1] + string2[index2:]
+    return string1[:string1.index(letter)] + string2[string2.index(letter):]
 
 
 print(string_merge("hello", "world", "l"))      # held
