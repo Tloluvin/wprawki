@@ -10,7 +10,7 @@ def unused_digits(*args):
     for n in numbers:
         if n.isdigit() and int(n) in digits:
             digits.remove(int(n))
-    return digits
+    return ''.join([str(elem) for elem in digits])
 
 print(unused_digits(12, 34, 56, 78))    # 09
 print(unused_digits(2015, 8, 26))       # 3479
