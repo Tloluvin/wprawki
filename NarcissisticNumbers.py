@@ -5,7 +5,15 @@
 # Write a method is_narcissistic(i) (in Haskell: isNarcissistic :: Integer -> Bool) which returns whether or not i is a Narcissistic Number.
 
 def is_narcissistic(i):
-    pass
+    string = str(i)
+    pow_str = len(string)
+    result = 0
+    for n in string:
+        result += int(n)**pow_str
+    if result == i:
+        return True
+    else:
+        return False
 
 print(is_narcissistic(153))     # True
 print(is_narcissistic(201))     # False
