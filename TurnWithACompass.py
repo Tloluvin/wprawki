@@ -26,6 +26,11 @@ def direction(facing, turn):
         direction = 315 + turn
     else:
         direction = 0 + turn
+
+    if direction < 0:
+        while direction <= 0:
+            direction += 360
+
     while direction >= 360:
         direction -= 360
 
@@ -51,3 +56,4 @@ def direction(facing, turn):
 print(direction("S", 180),  "N")
 print(direction("SE", -45), "E")
 print(direction("W", 495),  "NE")
+print(direction("SW", -945),  "N")
