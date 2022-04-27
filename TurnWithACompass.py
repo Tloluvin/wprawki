@@ -9,8 +9,43 @@
 
 
 def direction(facing, turn):
-    # your smart code here
-    return "S"
+    direction = 0
+    if facing == 'NE':
+        direction = 45 + turn
+    elif facing == 'E':
+        direction = 90 + turn
+    elif facing == 'SE':
+        direction = 135 + turn
+    elif facing == 'S':
+        direction = 180 + turn
+    elif facing == 'SW':
+        direction = 225 + turn
+    elif facing == 'W':
+        direction = 270 + turn
+    elif facing == 'NW':
+        direction = 315 + turn
+    else:
+        direction = 0 + turn
+    while direction >= 360:
+        direction -= 360
+
+    if direction == 0 or direction == 360:
+        return 'N'
+    elif direction == 45:
+        return 'NE'
+    elif direction == 90:
+        return 'E'
+    elif direction == 135:
+        return 'SE'
+    elif direction == 180:
+        return 'S'
+    elif direction == 225:
+        return 'SW'
+    elif direction == 270:
+        return 'W'
+    elif direction == 315:
+        return 'NW'
+    return 0
 
 
 print(direction("S", 180),  "N")
